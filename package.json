@@ -1,0 +1,17 @@
+{
+  "name": "number-padding-consistency-checker",
+  "version": "1.0.0",
+  "description": "Number padding consistency checker",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npx tsc && node dist/index.js"
+  },
+  "author": "N Ashwin",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.7.5"
+  }
+}
