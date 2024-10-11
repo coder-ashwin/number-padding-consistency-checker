@@ -16,7 +16,6 @@ export function checkNumberPadding(intStrs: Iterable<string>): number {
         }
 
         if (Number.isNaN(parseInt(str))) {
-            console.log(str, parseInt(str));
             throw new Error('Invalid number.');
         }
 
@@ -33,13 +32,14 @@ export function checkNumberPadding(intStrs: Iterable<string>): number {
     }
 
     if (lengths.size === 0) {
-        throw new Error('Input list cannot be empty.');
+        // Nothing to observe
+        return 0;
     }
 
     if (hasPadding) {
         if (paddedLengths.size === 1) {
             // Consistent padding length
-            const paddingLength = Math.max(...paddedLengths);
+            const paddingLength = paddedLengths.values().next().value;
             return paddingLength;
         } else {
             // Inconsistent padding lengths
@@ -47,12 +47,6 @@ export function checkNumberPadding(intStrs: Iterable<string>): number {
         }
     } else {
         // No padding observed
-        if (lengths.size === 1) {
-            // All have the same length, assuming no padding
-            return lengths.values().next().value;
-        } else {
-            // Inconclusive padding length
-            return -minLength;
-        }
+        return -minLength;
     }
 }
